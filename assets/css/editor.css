@@ -1,0 +1,93 @@
+/*
+ * Message-on-paper | editor.css
+ * Shared writing baseline, paragraph and Enter alignment rules.
+ * Order is important: later modules refine earlier styles.
+ */
+
+.page {
+    --rule-step: 31px;
+    --rule-offset: 3px;
+}
+
+.editor {
+    top: 0;
+    bottom: 5%;
+    line-height: var(--rule-step);
+    padding-top: 0;
+    padding-bottom: 0;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+
+.editor,
+.editor * {
+    box-sizing: border-box;
+}
+
+.editor p,
+.editor div,
+.editor li {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    line-height: inherit;
+    min-height: var(--rule-step);
+}
+
+.editor h1,
+.editor h2,
+.editor h3 {
+    line-height: var(--rule-step);
+    margin: 0 0 var(--rule-step);
+    padding: 0 4px;
+    border: 0;
+    min-height: var(--rule-step);
+    font-weight: normal;
+}
+
+.editor h1 {
+    font-size: 1.25em;
+}
+
+.editor h2,
+.editor h3 {
+    font-size: 1.1em;
+}
+
+.editor mark,
+.editor span {
+    line-height: inherit;
+}
+
+.editor br {
+    line-height: inherit;
+}
+
+.editor h1:after {
+    bottom: 0;
+}
+
+.editor ul,
+.editor ol {
+    margin: 0;
+    padding-left: 24px;
+}
+
+.editor li {
+    list-style-position: inside;
+}
+
+.editor:empty:before {
+    line-height: var(--rule-step);
+}
+
+.page-lines {
+    background-position: 0 var(--rule-offset);
+}
+
+@media (max-width:760px) {
+    .editor {
+        top: 0;
+    }
+}

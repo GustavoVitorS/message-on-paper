@@ -1,0 +1,56 @@
+/*
+ * Message-on-paper | feedback.css
+ * Page navigation, status bar and toast messages.
+ * Order is important: later modules refine earlier styles.
+ */
+
+.statusbar {
+    min-height: 38px;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 13px;
+    color: #46414e;
+}
+
+.navigation {
+    border: 1px solid #ffffff8c;
+    background: #fff8;
+    border-radius: 8px;
+    width: 32px;
+    height: 30px;
+    font-size: 25px;
+    line-height: 20px;
+}
+
+.navigation:disabled {
+    opacity: .35;
+    cursor: not-allowed;
+}
+
+.status-tip {
+    margin-left: 16px;
+    color: #625c6d;
+}
+
+.toast {
+    position: fixed;
+    left: 50%;
+    bottom: 28px;
+    transform: translate(-50%,12px);
+    padding: 10px 17px;
+    border-radius: 12px;
+    color: #fff;
+    background: #28212f;
+    opacity: 0;
+    z-index: 20;
+    pointer-events: none;
+    transition: opacity .2s,transform .2s;
+    box-shadow: 0 4px 18px #0004;
+}
+
+.toast.visible {
+    opacity: 1;
+    transform: translate(-50%,0);
+}

@@ -1,0 +1,88 @@
+/*
+ * Message-on-paper | toolbar.css
+ * Toolbar, buttons, input controls and active states.
+ * Order is important: later modules refine earlier styles.
+ */
+
+.toolbar {
+    align-self: center;
+    max-width: 100%;
+    min-height: 65px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 10px 16px;
+    background: linear-gradient(145deg,#f8f7fb,#e9e7ed);
+    border: 1px solid #ffffffa8;
+    border-radius: 18px;
+    box-shadow: 0 15px 26px #22202c2f,0 2px 6px #ffffffa8 inset;
+    z-index: 5;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.toolbar[hidden],
+.statusbar[hidden] {
+    display: none;
+}
+
+.tool-group {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    white-space: nowrap;
+}
+
+.font-group select {
+    width: 145px;
+}
+
+.toolbar select {
+    padding: 10px 34px 10px 12px;
+    border-radius: 10px;
+    border: 1px solid #bdbcc6;
+    background: #fafaff;
+    box-shadow: 0 2px 5px #0001;
+}
+
+.tool {
+    background: linear-gradient(#fbfbfd,#e9e7ed);
+    border: 1px solid #d0ced7;
+    border-radius: 11px;
+    min-height: 43px;
+    padding: 9px 13px;
+    box-shadow: 0 2px 5px #1d1a2530;
+    white-space: nowrap;
+    transition: transform .18s,background .18s;
+}
+
+.tool:hover {
+    transform: translateY(-2px);
+}
+
+.tool.is-active {
+    background: #dad0ff;
+    box-shadow: 0 0 0 1px #c5b6f2,0 3px 7px #6744a02b;
+}
+
+.tool-icon {
+    font-size: 22px;
+    vertical-align: -2px;
+    margin-right: 5px;
+}
+
+.separator {
+    height: 31px;
+    width: 1px;
+    background: #c5c1cb;
+}
+
+.color-group input {
+    width: 48px;
+    height: 40px;
+    padding: 5px;
+    border: 1px solid #cac7d0;
+    border-radius: 11px;
+    background: #f9f8fb;
+    cursor: pointer;
+}

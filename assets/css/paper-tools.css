@@ -1,0 +1,119 @@
+/*
+ * Message-on-paper | paper-tools.css
+ * Ruled and blank paper, highlighter and drawing canvas.
+ * Order is important: later modules refine earlier styles.
+ */
+
+.page {
+    --rule-step: 31px;
+    --rule-offset: 3px;
+}
+
+.page-lines {
+    background: repeating-linear-gradient(to bottom,transparent 0 30px,#c5cade 30px 31px);
+    background-position: 0 var(--rule-offset);
+}
+
+.editor {
+    top: 8px;
+    bottom: 5%;
+    left: 16%;
+    right: 4%;
+    padding: 0 10px 0 0;
+    line-height: var(--rule-step);
+    font-size: clamp(15px,1.6vw,23px);
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.editor h1 {
+    font-size: 1.35em;
+    line-height: 62px;
+    margin: 0 0 31px;
+    display: block;
+    max-width: max-content;
+    border-bottom: 0;
+    position: relative;
+}
+
+.editor h1:after {
+    content: "";
+    height: 3px;
+    background: #a279f4;
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 9px;
+    transform: rotate(-1deg);
+}
+
+.editor p,
+.editor div {
+    margin: 0;
+    line-height: 31px;
+}
+
+.editor mark,
+.editor span[style*="background"] {
+    border-radius: 2px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
+
+.page.plain-paper .page-lines,
+.page.plain-paper .margin-line {
+    display: none;
+}
+
+.page.plain-paper {
+    background: #fff;
+}
+
+.page.plain-paper .editor {
+    left: 8%;
+}
+
+.drawing-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+    touch-action: none;
+}
+
+.page.drawing-mode .drawing-canvas {
+    pointer-events: auto;
+    cursor: crosshair;
+}
+
+.page.drawing-mode .editor {
+    pointer-events: none;
+}
+
+.page.plain-paper .drawing-canvas {
+    cursor: crosshair;
+}
+
+@media (max-width:760px) {
+    .editor {
+        top: 8px;
+        left: 17%;
+    }
+
+    .page.plain-paper .editor {
+        left: 8%;
+    }
+}
+
+.editor h1 {
+    background: #fbf9fc;
+    padding: 0 4px;
+    margin-left: -4px;
+}
+
+.page.plain-paper .editor h1 {
+    background: #fff;
+}

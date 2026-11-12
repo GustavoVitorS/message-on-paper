@@ -1,30 +1,115 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
+<!doctype html>
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>📝</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#d5d1da" />
+  <meta name="description" content="Seu caderno digital com páginas, escrita, destaques e exportação." />
+  <title>Message on Paper — Caderno Digital</title>
+  <link rel="stylesheet" href="./assets/css/base.css" />
+  <link rel="stylesheet" href="./assets/css/toolbar.css" />
+  <link rel="stylesheet" href="./assets/css/workspace.css" />
+  <link rel="stylesheet" href="./assets/css/notebook.css" />
+  <link rel="stylesheet" href="./assets/css/feedback.css" />
+  <link rel="stylesheet" href="./assets/css/responsive.css" />
+  <link rel="stylesheet" href="./assets/css/paper-tools.css" />
+  <link rel="stylesheet" href="./assets/css/editor.css" />
+  <link rel="stylesheet" href="./assets/css/legacy-cover.css" />
+  <!-- Generated from MVC modules by build.py for offline file:// compatibility. -->
+  <script defer src="./assets/js/app.offline.js"></script>
 </head>
-
 <body>
-  <div class="paper">
-    <div class="lines">
-      <div class="text" contenteditable spellcheck="false">
-        Never give up on your dreams, because one you are capable of making them come true! <br /><br />
-
-        Live without regrets, and always seek to improve the person you were in the past few minutes.<br>
-        <br>
-
-        If you need to use project to write what you want or just take it to improve your knowledge in CSS.
+  <main class="app" id="app">
+    <!-- The toolbar remains hidden until the notebook opens. -->
+    <header class="toolbar" id="toolbar" aria-label="Ferramentas do caderno" hidden>
+      <div class="tool-group font-group">
+        <label for="fontSelect">Fonte:</label>
+        <select id="fontSelect" aria-label="Escolha uma fonte">
+          <option value="Georgia">Georgia</option>
+          <option value="Arial">Inter (similar)</option>
+          <option value="cursive">Manuscrita</option>
+        </select>
       </div>
-    </div>
-    <div class="holes hole-top"></div>
-    <div class="holes hole-middle"></div>
-    <div class="holes hole-bottom"></div>
-  </div>
-</body>
 
+      <span class="separator" aria-hidden="true"></span>
+
+      <div class="tool-group">
+        <button id="penBtn" class="tool is-active" data-tool="pen" type="button" aria-pressed="true">
+          <span class="tool-icon">✎</span> Caneta
+        </button>
+        <button id="highlightBtn" class="tool" data-tool="highlight" type="button" aria-pressed="false">
+          <span class="tool-icon">🖍</span> Marca-texto
+        </button>
+      </div>
+
+      <span class="separator" aria-hidden="true"></span>
+
+      <div class="tool-group color-group">
+        <label for="inkColor">Cor:</label>
+        <input id="inkColor" type="color" value="#242135" aria-label="Cor da caneta ou marca-texto" />
+      </div>
+
+      <span class="separator" aria-hidden="true"></span>
+
+      <button id="newPageBtn" class="tool" type="button">
+        <span class="tool-icon">⊕</span> Nova página
+      </button>
+      <button id="plainPageBtn" class="tool" type="button" aria-pressed="false" title="Alternar entre folha pautada e sem linhas">
+        ▤ Folha sem linhas
+      </button>
+      <button id="drawBtn" class="tool" type="button" data-tool="draw" aria-pressed="false" title="Desenhe livremente sobre a folha">
+        ✏ Rabiscar
+      </button>
+      <button id="eraserBtn" class="tool" type="button" data-tool="eraser" aria-pressed="false" title="Apagar apenas os rabiscos, sem modificar o texto">
+        ⌫ Borracha
+      </button>
+      <button id="undoDrawingBtn" class="tool" type="button" title="Desfazer último rabisco ou apagamento (Ctrl+Z)" aria-label="Desfazer rabisco" disabled>
+        ↶ Desfazer
+      </button>
+
+      <span class="separator" aria-hidden="true"></span>
+
+      <button id="pngBtn" class="tool" type="button">
+        <span class="tool-icon">▧</span> Exportar PNG
+      </button>
+      <button id="txtBtn" class="tool" type="button">
+        <span class="tool-icon">☷</span> Exportar TXT
+      </button>
+      <button id="plainPngBtn" class="tool" type="button" title="Exporta o conteúdo da página sobre uma folha branca, sem pauta">
+        ▢ PNG sem linhas
+      </button>
+    </header>
+
+    <section class="workspace" aria-label="Meu caderno digital">
+      <aside class="shelf" aria-label="Estado e navegação"><button type="button" class="preview-button" id="coverToggle" title="Abrir ou fechar caderno"><span class="mini-book" aria-hidden="true"><i></i></span><span id="coverLabel">Abrir caderno</span></button></aside>
+      <div class="book-scene">
+        <div class="book" id="book" data-state="closed">
+          <div class="book-base" aria-hidden="true"></div>
+          <div class="inside-left" aria-label="Original Message-on-paper V1 message">
+            <div class="left-pocket" aria-hidden="true"></div>
+            <section class="legacy-message" aria-label="A message from the original project">
+              <span class="legacy-eyebrow">ORIGINAL MESSAGE · V1</span>
+              <p>Never give up on your dreams, because one you are capable of making them come true!</p>
+              <p>Live without regrets, and always seek to improve the person you were in the past few minutes.</p>
+              <p>If you need to use project to write what you want or just take it to improve your knowledge in CSS.</p>
+            </section>
+            <span class="emboss">MESSAGE ON PAPER</span>
+          </div>
+          <div class="paper-stack" aria-hidden="true"></div>
+          <div class="page" id="page">
+            <div class="page-lines" aria-hidden="true"></div>
+            <div class="margin-line" aria-hidden="true"></div>
+            <div class="editor" id="editor" contenteditable="true" role="textbox" aria-label="Escreva suas anotações aqui" aria-multiline="true" spellcheck="true"></div>
+            <canvas id="drawingCanvas" class="drawing-canvas" aria-label="Área de desenho livre"></canvas>
+            <div class="page-flip" id="pageFlip" aria-hidden="true"></div>
+          </div>
+          <div class="rings" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <button type="button" class="book-cover" id="frontCover" aria-label="Abrir o caderno"><span class="cover-stitch"></span><span class="cover-title">Message<br><em>on paper</em></span><span class="cover-hint">Clique para abrir <span aria-hidden="true">→</span></span></button>
+        </div>
+      </div>
+    </section>
+    <footer class="statusbar" id="statusbar" hidden><button id="previousBtn" class="navigation" type="button" aria-label="Página anterior">‹</button><span id="pageStatus" aria-live="polite">Página 1 de 1</span><button id="nextBtn" class="navigation" type="button" aria-label="Próxima página">›</button><span class="status-tip">Suas anotações são salvas neste navegador</span></footer>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </main>
+</body>
 </html>

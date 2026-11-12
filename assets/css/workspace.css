@@ -1,0 +1,76 @@
+/*
+ * Message-on-paper | workspace.css
+ * Workspace composition, shelf, and compact cover.
+ * Order is important: later modules refine earlier styles.
+ */
+
+.workspace {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 520px;
+    padding: 22px 0 20px;
+}
+
+.shelf {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 6;
+}
+
+.preview-button {
+    width: 148px;
+    padding: 19px 9px 14px;
+    display: grid;
+    justify-items: center;
+    gap: 12px;
+    border: 1px solid #ffffff7d;
+    border-radius: 18px;
+    background: #ffffff35;
+    box-shadow: 0 7px 18px #00000012;
+    color: #34313d;
+}
+
+.preview-button:hover {
+    background: #fff6;
+}
+
+.mini-book {
+    display: block;
+    width: 82px;
+    height: 114px;
+    position: relative;
+    background: linear-gradient(90deg,#111014,#34313b 14%,#1c1b20 90%,#101014);
+    border: 3px solid #1d1b21;
+    border-radius: 5px 11px 11px 5px;
+    box-shadow: 5px 6px 8px #0005;
+    transform: rotate(5deg);
+}
+
+.mini-book:before {
+    content: " ";
+    position: absolute;
+    left: -11px;
+    top: 10px;
+    width: 13px;
+    height: 90px;
+    background: repeating-linear-gradient(to bottom,transparent 0 14px,#080809 14px 20px,transparent 20px 24px);
+    border-radius: 5px;
+}
+
+.mini-book i {
+    position: absolute;
+    inset: 5px;
+    border: 1px dashed #77717d;
+    border-radius: 5px;
+}
+
+.book-scene {
+    width: min(1080px,calc(100vw - 240px));
+    perspective: 2000px;
+    filter: drop-shadow(0 25px 23px #1b182344);
+}

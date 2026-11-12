@@ -1,0 +1,160 @@
+/*
+ * Message-on-paper | responsive.css
+ * Notebook breakpoints and reduced-motion accommodations.
+ * Order is important: later modules refine earlier styles.
+ */
+
+@media (max-width:1160px) {
+    .shelf {
+        left: 0;
+        top: auto;
+        bottom: 0;
+        transform: none;
+    }
+
+    .preview-button {
+        width: 110px;
+        padding: 10px;
+    }
+
+    .mini-book {
+        height: 65px;
+        width: 49px;
+    }
+
+    .mini-book:before {
+        height: 51px;
+        top: 5px;
+    }
+
+    .book-scene {
+        width: min(940px,calc(100vw - 155px));
+        margin-left: 100px;
+    }
+
+    .toolbar {
+        gap: 8px;
+    }
+
+    .separator {
+        display: none;
+    }
+}
+
+@media (max-width:760px) {
+    .app {
+        padding: 11px 10px;
+    }
+
+    .toolbar {
+        border-radius: 12px;
+        padding: 8px;
+        gap: 6px;
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .tool {
+        padding: 7px 9px;
+        min-height: 37px;
+        font-size: 12px;
+    }
+
+    .tool-icon {
+        font-size: 17px;
+        margin-right: 2px;
+    }
+
+    .font-group select {
+        width: 120px;
+        padding: 7px;
+    }
+
+    .workspace {
+        min-height: 470px;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 18px;
+        padding-top: 30px;
+    }
+
+    .shelf {
+        position: relative;
+        order: 2;
+        align-self: center;
+    }
+
+    .preview-button {
+        width: 130px;
+        display: flex;
+        align-items: center;
+    }
+
+    .mini-book {
+        flex-shrink: 0;
+    }
+
+    .book-scene {
+        width: min(94vw,620px);
+        margin: 0;
+        order: 1;
+    }
+
+    .book {
+        aspect-ratio: 1/1.32;
+    }
+
+    .book-base {
+        border-radius: 18px;
+    }
+
+    .inside-left,
+    .rings {
+        display: none;
+    }
+
+    .paper-stack,
+    .page {
+        left: 3%;
+        width: 94%;
+    }
+
+    .page {
+        top: 2%;
+        height: 95%;
+    }
+
+    .page-lines {
+        background-size: auto 31px;
+    }
+
+    .editor {
+        font-size: 18px;
+        left: 17%;
+        top: 6%;
+    }
+
+    .book-cover {
+        width: 100%;
+        border-radius: 16px;
+    }
+
+    .book[data-state="open"] .book-cover {
+        transform: rotateY(-145deg);
+    }
+
+    .status-tip {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion:reduce) {
+    .book-cover {
+        transition: none;
+    }
+
+    .page-flip.flipping-next,
+    .page-flip.flipping-prev {
+        animation-duration: .01ms;
+    }
+}

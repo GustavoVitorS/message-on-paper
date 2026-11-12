@@ -1,0 +1,84 @@
+/*
+ * Message-on-paper | legacy-cover.css
+ * Eraser, undo UI, preserved V1 message and final responsive tuning.
+ * Order is important: later modules refine earlier styles.
+ */
+
+.page.erasing-mode .drawing-canvas {
+    cursor: crosshair;
+}
+
+.tool:disabled {
+    opacity: .48;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.inside-left {
+    overflow: hidden;
+}
+
+.legacy-message {
+    position: absolute;
+    z-index: 1;
+    inset: 11% 10% 13% 12%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: clamp(10px,1.6vw,22px);
+    color: #e6e1e9;
+    pointer-events: none;
+    text-shadow: 0 1px 3px #000a;
+}
+
+.legacy-eyebrow {
+    color: #b8a4d2;
+    font: 600 clamp(9px,.8vw,11px)/1.4 Arial,Helvetica,sans-serif;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+}
+
+.legacy-message p {
+    font-family: Georgia,"Times New Roman",serif;
+    font-size: clamp(12px,1.18vw,17px);
+    line-height: 1.55;
+    margin: 0;
+    max-width: 43ch;
+    overflow-wrap: break-word;
+}
+
+.emboss {
+    z-index: 1;
+    color: #b6acbd;
+    opacity: .85;
+    text-shadow: 0 1px 2px #0008;
+    font-size: clamp(9px,.8vw,12px);
+    letter-spacing: .2em;
+}
+
+@media (max-width:760px) {
+    .inside-left {
+        display: none;
+    }
+
+    .legacy-message {
+        inset: 9% 10% 10% 12%;
+    }
+}
+
+@media (max-width:1200px) and (min-width:761px) {
+    .legacy-message {
+        gap: 11px;
+        inset: 8% 9% 12% 12%;
+    }
+
+    .legacy-message p {
+        font-size: clamp(11px,1.1vw,15px);
+        line-height: 1.4;
+    }
+}
+
+.inside-left .left-pocket {
+    opacity: .08;
+}
