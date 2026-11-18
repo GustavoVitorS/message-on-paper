@@ -162,7 +162,3 @@ Go to **Settings → Pages** in the repository. Under **Build and deployment**, 
 ## Credits
 
 Created by [GustavoVitorS](https://github.com/GustavoVitorS). The project evolves the original **Message-on-paper** experiment while preserving its message.
-
-## License
-
-No new license file has been added. Consult the repository for its licensing status before reuse or redistribution.
